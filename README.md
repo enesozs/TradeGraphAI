@@ -4,7 +4,14 @@
 
 TradeGraph AI is an open, research-oriented **trade-dependency explorer** built on reconciled bilateral trade data. The Atlas of Economic Complexity, OEC and WITS already map trade flows; TradeGraph focuses on **dependency**. Every number carries its source release, denominator, units and coverage. Everything runs in the browser: the pipeline publishes Parquet files, and the app queries them with DuckDB-WASM, with no backend.
 
-![Dependency profile](docs/screenshots/01-dependency-profile.png)
+![Trade map: the 150 largest chip flows of 2023, coloured by importer](docs/screenshots/02-trade-map.png)
+
+| | |
+|---|---|
+| ![Sea routes](docs/screenshots/04-sea-routes.png) **Sea routes:** modelled lanes and chokepoint reliance | ![Dependency profile](docs/screenshots/05-dependency-profile.png) **Dependency profile:** suppliers and concentration over time |
+| ![EU monthly monitor](docs/screenshots/06-eu-monthly.png) **EU monthly monitor:** Eurostat data, month by month | ![Scenario studio](docs/screenshots/07-scenario-studio.png) **Scenario studio:** who could make up a supplier's shortfall |
+
+More in the [gallery](docs/gallery.md).
 
 ## Pages
 
