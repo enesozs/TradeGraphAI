@@ -74,7 +74,7 @@ Individual steps: `uv run tradegraph fetch | curate | marts | wdi | gravity | fo
 
 ## Deploying
 
-The app is a static site. On [Vercel](https://vercel.com), import the repository: [`vercel.json`](vercel.json) builds `app/` and serves `app/dist`, with no further settings. Any static host works the same way: run `cd app && npm ci && npm run build` and serve `app/dist`.
+The app is a static site; the Python pipeline runs locally and is not deployed. On [Vercel](https://vercel.com), import the repository and set **Root Directory** to `app`. [`app/vercel.json`](app/vercel.json) does the rest (Vite build, output `dist`, caching). Any static host works the same way: run `cd app && npm ci && npm run build` and serve `app/dist`.
 
 ## Architecture
 
