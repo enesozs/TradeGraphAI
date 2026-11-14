@@ -41,11 +41,11 @@ More in the [gallery](docs/gallery.md).
 | [CEPII Gravity](https://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=8) V202211 | Distance, border, language, colonial ties, trade agreements | Etalab Open Licence 2.0 |
 | [Eurostat Comext](https://ec.europa.eu/eurostat/comext/) DS-045409 | Monthly EU imports (HS6), 2017 to the latest month | Eurostat reuse policy (acknowledgement; adapted) |
 | Eurostat Comext, trade by mode of transport | How EU imports from outside the EU cross the border, 2012–2026 | Eurostat reuse policy (acknowledgement; adapted) |
-| Eurostat `ert_bil_eur_m` | Monthly euro to US dollar rates, based on ECB reference rates | Eurostat reuse policy; ECB data, non-commercial reuse |
-| [IMF PortWatch](https://portwatch.imf.org/) | Ports, chokepoints and daily chokepoint transits | IMF terms for statistical data: non-commercial reuse with attribution |
+| Eurostat `ert_bil_eur_m` | Monthly euro to US dollar rates (ECB statistics), used only to convert values | Eurostat copyright notice; ECB statistics reuse policy (free reuse with credit) |
+| [IMF PortWatch](https://portwatch.imf.org/) | Ports, chokepoints and daily chokepoint transits | IMF terms: reuse with attribution; commercial reuse needs IMF permission |
 | World Bank WDI | GDP (reserved) | CC BY 4.0 |
 
-Eurostat is not responsible for the adapted figures. Because the exchange rates and PortWatch data are for non-commercial reuse, the published app is non-commercial.
+The project is non-commercial, which some of these terms require. All data is adapted (aggregated, converted, modelled), and the sources are not responsible for the adapted figures. Full attributions, citations and third-party notices are in [`DATA_LICENSES.md`](DATA_LICENSES.md).
 
 **Product baskets**, editable in [`configs/baskets.yaml`](configs/baskets.yaml): chips, Li-ion batteries, lithium chemicals, rare earths and magnets, bulk antibiotics, and green coffee as a control.
 
@@ -94,3 +94,7 @@ raw snapshots (SHA-256 manifests; git-ignored)
 - [`docs/VISUAL_DESIGN.md`](docs/VISUAL_DESIGN.md): visual language
 - [`AGENTS.md`](AGENTS.md) · [`CLAUDE.md`](CLAUDE.md): scientific contract, engineering standards and workflow for contributors and coding agents
 - `site/`: the first prototype (Observable Framework), kept for reference; the app in `app/` replaces it
+
+## Licence
+
+The code is released under the [MIT License](LICENSE). The data in `app/public/data`, `reports/` and `docs/screenshots` is derived from the sources above and stays under their terms; see [`DATA_LICENSES.md`](DATA_LICENSES.md).

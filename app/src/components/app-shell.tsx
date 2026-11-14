@@ -101,7 +101,8 @@ function Shell({ children }: { children: ReactNode }) {
         </SidebarContent>
         <SidebarFooter>
           <p className="px-2 text-xs leading-snug text-muted-foreground group-data-[collapsible=icon]:hidden">
-            Data: CEPII BACI, CEPII Gravity, Eurostat Comext, IMF PortWatch.
+            Data: CEPII BACI, CEPII Gravity, Eurostat, IMF PortWatch, Natural Earth.{" "}
+            <NavLink to="/methodology" className="underline underline-offset-2 hover:text-foreground">Sources and licences</NavLink>
           </p>
         </SidebarFooter>
       </Sidebar>

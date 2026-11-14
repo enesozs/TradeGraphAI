@@ -11,6 +11,9 @@ type Info = Omit<BuildInfo, "baskets"> & {
   baskets: (BuildInfo["baskets"][number] & { rationale?: string })[];
 };
 
+function A({ href, children }: { href: string; children: ReactNode }) {
+  return <a href={href} target="_blank" rel="noreferrer" className="underline decoration-muted-foreground/50 underline-offset-2 hover:text-foreground">{children}</a>;
+}
 function List({ children }: { children: ReactNode }) {
   return <ul className="max-w-3xl list-disc space-y-2.5 pl-5 text-sm text-muted-foreground marker:text-border [&_strong]:text-foreground [&_em]:text-foreground">{children}</ul>;
 }
@@ -100,6 +103,32 @@ export function MethodologyPage() {
           <li>Concentration measures exposure; it doesn't measure risk or likelihood of disruption.</li>
           <li>Values are nominal, so price swings move them. Compare the value and tonnes views.</li>
           <li>Hub re-exports can overstate a hub's role and hide the country of origin.</li>
+        </List>
+      </Section>
+
+      <Section
+        title="Sources and licences"
+        description="This is a non-commercial project, not affiliated with or endorsed by any of these organisations. Their data is reused as published and then adapted (aggregated, converted and modelled), and they are not responsible for the adapted figures. The code is MIT-licensed; the data keeps its sources' terms."
+      >
+        <List>
+          <li>
+            <strong>CEPII BACI</strong>, HS12, version 202601, last updated 30 January 2026, and <strong>CEPII Gravity</strong>, version 202211, both under the{" "}
+            <A href="https://github.com/etalab/licence-ouverte/blob/master/open-licence.md">Etalab Open Licence 2.0</A>. Gaulier, G. and Zignago, S. (2010), CEPII Working Paper N°2010-23; Conte, M., Cotterlaz, P. and Mayer, T. (2022), CEPII Working Paper N°2022-05.
+          </li>
+          <li>
+            <strong>Eurostat</strong>, © European Union: Comext DS-045409 (monthly EU trade by HS6), Comext trade by mode of transport (TRANSPORT_HS), and ert_bil_eur_m (euro exchange rates, from ECB statistics), reused under the{" "}
+            <A href="https://ec.europa.eu/eurostat/web/main/help/copyright-notice">Eurostat copyright notice</A>. Values are aggregated to baskets, converted to US dollars and modelled; Eurostat is not responsible for these adapted figures.
+          </li>
+          <li>
+            <strong>Source: International Monetary Fund, PortWatch</strong> (<A href="https://portwatch.imf.org/">portwatch.imf.org</A>; underlying data: UN Global Platform): daily chokepoint transit calls, ports and chokepoints. Daily counts are aggregated to weekly averages, and port shares are used only to choose each country's main ports. Reused under the{" "}
+            <A href="https://www.imf.org/en/about/copyright-and-terms">IMF terms</A>.
+          </li>
+          <li>
+            <strong>Sea routes</strong> are modelled with <A href="https://github.com/genthalili/searoute-py">searoute</A> (Apache-2.0) over Eurostat's MARNET network (EUPL-1.2); the derived lane geometry is published under the EUPL-1.2. Not for navigation.
+          </li>
+          <li>
+            <strong>Country boundaries</strong>: <A href="https://www.naturalearthdata.com/">Natural Earth</A> 1:110m (public domain), via <A href="https://github.com/topojson/world-atlas">world-atlas</A> (ISC).
+          </li>
         </List>
       </Section>
 
