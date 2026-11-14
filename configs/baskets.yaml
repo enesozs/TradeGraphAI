@@ -1,0 +1,78 @@
+# Product baskets for TradeGraph AI (ADR-003). Status: ACCEPTED 2026-11-06.
+#
+# To analyse a different list: add, remove or edit baskets below, then run
+#   uv run tradegraph marts
+# No re-download is needed: all products are stored; baskets are applied at mart build time.
+#
+# Rules (enforced by tradegraph.config):
+#   - basket id: lowercase snake_case, unique
+#   - codes: QUOTED 6-digit HS12 strings ("090111", not 090111), present in the BACI product list
+#   - value_only: true when tonnes are not a meaningful basis (e.g. chips)
+#   - short_label: optional (<= 16 chars) for compact charts; defaults to a truncated label
+# A product code may appear in more than one basket.
+
+hs_revision: HS12
+source_release: BACI_V202601
+
+baskets:
+  integrated_circuits:
+    label: Integrated circuits (chips)
+    short_label: Chips
+    rationale: >
+      Core semiconductor dependency question. The HS12 sub-headings separate
+      processors, memories and amplifiers. Taiwan is reported as "Other Asia, nes"
+      (BACI code 490 / S19) and must be labelled clearly in every view.
+    codes: ["854231", "854232", "854233", "854239"]
+    value_only: true
+    caveats:
+      - Parts (854290) are excluded; this basket covers finished ICs only.
+      - Re-exports through hubs (e.g. Hong Kong, Singapore) inflate apparent supplier roles.
+
+  li_ion_batteries:
+    label: Lithium-ion accumulators
+    short_label: Li-ion
+    rationale: Clean single HS6 code in HS12 for a key energy-transition good.
+    codes: ["850760"]
+    caveats:
+      - Includes cells and battery packs; cannot separate EV packs from consumer cells.
+
+  battery_lithium_chemicals:
+    label: Lithium chemicals (carbonate, hydroxide/oxide)
+    short_label: Lithium chem.
+    rationale: Upstream inputs to Li-ion; geographically very concentrated refining.
+    codes: ["283691", "282520"]
+    caveats:
+      - Lithium ores/concentrates have no dedicated HS12 code (no HS12 description mentions lithium ore; spodumene is commonly reported under the residual heading 253090), so this basket excludes them.
+
+  rare_earths_and_magnets:
+    label: Rare-earth compounds, metals and permanent magnets
+    short_label: Rare earths
+    rationale: Classic concentration case; magnets connect to motors and wind turbines.
+    codes: ["280530", "284610", "284690", "850511"]
+    caveats:
+      - 850511 covers ALL metal permanent magnets, not only NdFeB rare-earth magnets.
+      - Values are small and volatile; check value vs tonnes divergence.
+
+  antibiotics_apis:
+    label: Antibiotics (bulk active ingredients)
+    short_label: Antibiotics
+    rationale: Pharmaceutical-input dependency; bulk APIs rather than finished medicines.
+    codes: ["294110", "294120", "294130", "294140", "294150", "294190"]
+    caveats:
+      - Finished medicaments (3003/3004) are excluded; their value is dominated by branded products.
+
+  control_green_coffee:
+    label: Green coffee (control basket)
+    short_label: Coffee (ctrl)
+    rationale: >
+      An ordinary product with a well-understood supplier structure. It is used to
+      sanity-check the metrics and to stop "dependency" findings from being presented
+      without comparison.
+    codes: ["090111"]
+
+excluded_candidates:
+  photovoltaics:
+    reason: >
+      HS12 854140 combines PV cells, PV modules and LEDs in one code, so a PV basket
+      cannot be isolated. HS22 splits them (854141/42/43/49), but HS22 data only
+      begins in 2022. Revisit as an HS22 side-study (2022–2024) if needed.

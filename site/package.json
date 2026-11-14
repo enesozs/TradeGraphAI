@@ -1,0 +1,17 @@
+{
+  "name": "tradegraph-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "rm -rf src/.observablehq/cache/data && observable preview",
+    "build": "rm -rf src/.observablehq/cache/data && observable build",
+    "clean": "rm -rf src/.observablehq/cache dist"
+  },
+  "dependencies": {
+    "@observablehq/framework": "1.13.4",
+    "world-atlas": "2.0.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

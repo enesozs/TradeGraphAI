@@ -1,0 +1,88 @@
+{
+  "kind": "nowcast (model estimate of observed data not yet published)",
+  "scope": "EU only: the EU's imports from outside the EU, and six member states (DE, FR, IT, NL, ES, PL)",
+  "baci_last_year": 2024,
+  "comext_last_year": 2026,
+  "comext_last_month": 7,
+  "nowcast_years": [
+    2025,
+    2026
+  ],
+  "methods": {
+    "fx_only": "Comext at the exchange rate (ratio 1)",
+    "last_ratio": "Comext x the pair's last known BACI/Comext ratio",
+    "learned": "gradient boosting on last known ratios, size, lag, reporter and basket"
+  },
+  "backtest": {
+    "test_years": [
+      2019,
+      2024
+    ],
+    "settings": {
+      "full_lag1": "complete Comext year, BACI one year behind (like the first nowcast year)",
+      "partial_lag2": "Comext January-month 7 scaled up, BACI two years behind (like the current year)"
+    },
+    "metrics": {
+      "full_lag1": {
+        "fx_only": {
+          "median_abs_error": 0.060362951724567904,
+          "weighted_abs_log_error": 0.11561938158871334,
+          "top_supplier_share_mae_pp": 5.8997596534342005,
+          "n_cells": 252
+        },
+        "last_ratio": {
+          "median_abs_error": 0.07077545385347406,
+          "weighted_abs_log_error": 0.2034277590811621,
+          "top_supplier_share_mae_pp": 8.029725164798824,
+          "n_cells": 252
+        },
+        "learned": {
+          "median_abs_error": 0.04756118424818956,
+          "weighted_abs_log_error": 0.08454928005229892,
+          "top_supplier_share_mae_pp": 4.9006394113203084,
+          "n_cells": 252
+        },
+        "band_log": [
+          -0.21135354348954621,
+          0.07705497724466014
+        ]
+      },
+      "partial_lag2": {
+        "fx_only": {
+          "median_abs_error": 0.11463113676064712,
+          "weighted_abs_log_error": 0.16684873898812452,
+          "top_supplier_share_mae_pp": 7.086102857111608,
+          "n_cells": 210
+        },
+        "last_ratio": {
+          "median_abs_error": 0.14082691040787265,
+          "weighted_abs_log_error": 0.3195619557621502,
+          "top_supplier_share_mae_pp": 10.745070982247366,
+          "n_cells": 210
+        },
+        "learned": {
+          "median_abs_error": 0.10718244123730358,
+          "weighted_abs_log_error": 0.14936844872543312,
+          "top_supplier_share_mae_pp": 6.74674678210838,
+          "n_cells": 210
+        },
+        "band_log": [
+          -0.2953840657385316,
+          0.21175955089712506
+        ]
+      }
+    }
+  },
+  "sources": [
+    "CEPII BACI (target, history)",
+    "Eurostat Comext DS-045409 (monthly, EUR)",
+    "Eurostat ert_bil_eur_m, based on ECB euro reference rates (USD per EUR)"
+  ],
+  "caveats": [
+    "A nowcast estimates what BACI will report; it is not observed data and will be revised when BACI publishes.",
+    "BACI's latest year is itself provisional.",
+    "Pairs that BACI records but Comext lacks are missing from the nowcast; the backtest error includes this.",
+    "The current year is scaled up from its first months using each basket's usual seasonal pattern; a change in pattern (e.g. stockpiling) is not captured.",
+    "Bands are the 10th-90th percentile of past nowcast errors, not a guarantee."
+  ]
+}

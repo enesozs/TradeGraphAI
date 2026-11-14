@@ -1,0 +1,148 @@
+{
+ "built_at": "2026-11-06T14:10:36+00:00",
+ "source": {
+  "name": "CEPII BACI",
+  "release": "202601",
+  "hs_revision": "HS12",
+  "license": "Etalab Open Licence 2.0",
+  "citation": "Gaulier, G. and Zignago, S. (2010). BACI: International Trade Database at the Product-Level. CEPII Working Paper N°2010-23."
+ },
+ "units": {
+  "value": "thousand current USD (FOB-reconciled)",
+  "quantity": "metric tonnes"
+ },
+ "years": [
+  2012,
+  2013,
+  2014,
+  2015,
+  2016,
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024
+ ],
+ "provisional_years": [
+  2024
+ ],
+ "movers": {
+  "start_years": [
+   2012,
+   2014
+  ],
+  "end_years": [
+   2021,
+   2023
+  ],
+  "min_imports_kusd": 100000.0
+ },
+ "basket_config_sha256": "7da4daeb8d81c3ef1c3b220b71c14e16cab7fe35ff21a76f3d8fb435400dfa47",
+ "baskets": [
+  {
+   "id": "integrated_circuits",
+   "label": "Integrated circuits (chips)",
+   "short_label": "Chips",
+   "rationale": "Core semiconductor dependency question. The HS12 sub-headings separate processors, memories and amplifiers. Taiwan is reported as \"Other Asia, nes\" (BACI code 490 / S19) and must be labelled clearly in every view.\n",
+   "codes": [
+    "854231",
+    "854232",
+    "854233",
+    "854239"
+   ],
+   "caveats": [
+    "Parts (854290) are excluded; this basket covers finished ICs only.",
+    "Re-exports through hubs (e.g. Hong Kong, Singapore) inflate apparent supplier roles."
+   ],
+   "value_only": true
+  },
+  {
+   "id": "li_ion_batteries",
+   "label": "Lithium-ion accumulators",
+   "short_label": "Li-ion",
+   "rationale": "Clean single HS6 code in HS12 for a key energy-transition good.",
+   "codes": [
+    "850760"
+   ],
+   "caveats": [
+    "Includes cells and battery packs; cannot separate EV packs from consumer cells."
+   ],
+   "value_only": false
+  },
+  {
+   "id": "battery_lithium_chemicals",
+   "label": "Lithium chemicals (carbonate, hydroxide/oxide)",
+   "short_label": "Lithium chem.",
+   "rationale": "Upstream inputs to Li-ion; geographically very concentrated refining.",
+   "codes": [
+    "283691",
+    "282520"
+   ],
+   "caveats": [
+    "Lithium ores/concentrates have no dedicated HS12 code (no HS12 description mentions lithium ore; spodumene is commonly reported under the residual heading 253090), so this basket excludes them."
+   ],
+   "value_only": false
+  },
+  {
+   "id": "rare_earths_and_magnets",
+   "label": "Rare-earth compounds, metals and permanent magnets",
+   "short_label": "Rare earths",
+   "rationale": "Classic concentration case; magnets connect to motors and wind turbines.",
+   "codes": [
+    "280530",
+    "284610",
+    "284690",
+    "850511"
+   ],
+   "caveats": [
+    "850511 covers ALL metal permanent magnets, not only NdFeB rare-earth magnets.",
+    "Values are small and volatile; check value vs tonnes divergence."
+   ],
+   "value_only": false
+  },
+  {
+   "id": "antibiotics_apis",
+   "label": "Antibiotics (bulk active ingredients)",
+   "short_label": "Antibiotics",
+   "rationale": "Pharmaceutical-input dependency; bulk APIs rather than finished medicines.",
+   "codes": [
+    "294110",
+    "294120",
+    "294130",
+    "294140",
+    "294150",
+    "294190"
+   ],
+   "caveats": [
+    "Finished medicaments (3003/3004) are excluded; their value is dominated by branded products."
+   ],
+   "value_only": false
+  },
+  {
+   "id": "control_green_coffee",
+   "label": "Green coffee (control basket)",
+   "short_label": "Coffee (ctrl)",
+   "rationale": "An ordinary product with a well-understood supplier structure. It is used to sanity-check the metrics and to stop \"dependency\" findings from being presented without comparison.\n",
+   "codes": [
+    "090111"
+   ],
+   "caveats": [],
+   "value_only": false
+  }
+ ],
+ "row_counts": {
+  "mart_importer": 15234,
+  "mart_supplier": 339826,
+  "movers_importer": 132,
+  "movers_supplier": 12859
+ },
+ "notes": [
+  "Shares use each importer's imports from ALL partner countries.",
+  "Absent flows are 'not recorded', not zero.",
+  "Country code 490 / ISO3 S19 is 'Other Asia, nes' (Taiwan).",
+  "redirectable_kusd is an observed upper bound, not feasible substitution."
+ ]
+}

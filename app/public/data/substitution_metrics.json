@@ -1,0 +1,112 @@
+{
+  "kind": "model (learned from observed history); used inside scenarios",
+  "question": "When a major supplier's exports of a product fell, how much did the other suppliers expand theirs the next year?",
+  "rules": {
+    "drop": 0.3,
+    "min_share": 0.02,
+    "world_floor": 0.8,
+    "n_alternatives": 40,
+    "clip_max": 3.0,
+    "min_size_kusd": 1000.0,
+    "min_world_kusd_all_products": 20000
+  },
+  "features": [
+    "log_size",
+    "world_share",
+    "rank",
+    "growth_prev",
+    "growth_trend",
+    "growth_vol",
+    "gap_share",
+    "shocked_share",
+    "customer_overlap",
+    "tonnes_basis"
+  ],
+  "training": {
+    "scope": "all HS6 products in CEPII BACI with >= $20 m world trade",
+    "n_products": 5014,
+    "n_falls": 73577,
+    "n_alternative_rows": 1867919,
+    "tonnes_basis_share": 0.9491573242736971,
+    "band_widening_k": 1.05,
+    "event_correlation": 0.07948729947225976
+  },
+  "basket_falls": 49,
+  "split_year": 2019,
+  "backtest_all_products": {
+    "n": 809035,
+    "n_events": 31517,
+    "pinball": {
+      "q10": 0.06171124611433097,
+      "q50": 0.17046665211957213,
+      "q90": 0.11351373877550237
+    },
+    "coverage_q10_q90": 0.7844336343946248,
+    "models": {
+      "learned": {
+        "mae_median": 0.34093330423914425,
+        "aggregate_error": 0.09249496354422208
+      },
+      "fixed_5pct": {
+        "mae_median": 0.36515442292225786,
+        "aggregate_error": 0.11451205882884659
+      },
+      "fixed_15pct": {
+        "mae_median": 0.4041735645790849,
+        "aggregate_error": 0.10366924144397002
+      },
+      "fixed_30pct": {
+        "mae_median": 0.4920707351122342,
+        "aggregate_error": 0.18795587135679573
+      },
+      "own_trend": {
+        "mae_median": 0.5918900294039668,
+        "aggregate_error": 0.18866349690556602
+      }
+    },
+    "realised_growth_median": -0.07060374780875178,
+    "realised_positive_share": 0.4247977902470575
+  },
+  "backtest_baskets": {
+    "n": 725,
+    "n_events": 19,
+    "pinball": {
+      "q10": 0.06653386434545903,
+      "q50": 0.2213915517520724,
+      "q90": 0.191301869594146
+    },
+    "coverage_q10_q90": 0.7145385461208239,
+    "models": {
+      "learned": {
+        "mae_median": 0.4427831035041448,
+        "aggregate_error": 0.08023672666681658
+      },
+      "fixed_5pct": {
+        "mae_median": 0.4700861166162813,
+        "aggregate_error": 0.07523057059082348
+      },
+      "fixed_15pct": {
+        "mae_median": 0.5100436561118374,
+        "aggregate_error": 0.08362023300447481
+      },
+      "fixed_30pct": {
+        "mae_median": 0.5875130234639256,
+        "aggregate_error": 0.17862607660722782
+      },
+      "own_trend": {
+        "mae_median": 0.6684256174751382,
+        "aggregate_error": 0.10643994415847534
+      }
+    },
+    "realised_growth_median": -0.007368798391286346,
+    "realised_positive_share": 0.3571161131865744
+  },
+  "scenario_year": 2023,
+  "caveats": [
+    "Observational: alternatives that grew after a rival's fall show what did happen, not what could happen in a sudden global shortfall.",
+    "Learned across all HS6 products and applied to baskets (groups of HS6 codes); behaviour may differ for strategic goods.",
+    "Growth is measured in tonnes where both years report tonnes, otherwise in current USD (prices move value).",
+    "Falls are supplier-specific by construction (world exports held at >= 80% of the year before); their causes are not identified.",
+    "Most training falls are smaller than the scenarios' shocks; large shocks are extrapolation."
+  ]
+}

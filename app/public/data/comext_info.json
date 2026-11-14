@@ -1,0 +1,188 @@
+{
+ "built_at": "2026-11-14T14:31:08+00:00",
+ "source": "Eurostat, Comext dataset DS-045409 (EU trade by HS6), \u00a9 European Union; adapted by TradeGraph AI",
+ "eurostat_last_update": "16/10/26 11:00:00",
+ "first_month": "2017-01-01",
+ "latest_month": "2026-08-01",
+ "latest_month_by_reporter": {
+  "DE": "2026-07-01",
+  "EU27_2020": "2026-07-01",
+  "PL": "2026-07-01",
+  "NL": "2026-07-01",
+  "FR": "2026-07-01",
+  "EU27_2020_EXTRA": "2026-08-01",
+  "IT": "2026-07-01",
+  "ES": "2026-08-01"
+ },
+ "reporters": [
+  "EU27_2020",
+  "DE",
+  "FR",
+  "IT",
+  "NL",
+  "ES",
+  "PL",
+  "EU27_2020_EXTRA"
+ ],
+ "units": {
+  "value": "EUR",
+  "quantity": "100 kg"
+ },
+ "unmapped_partner_codes": [
+  {
+   "code": "EXT_EU27_2020",
+   "value_share": 0.173633
+  },
+  {
+   "code": "WORLD",
+   "value_share": 0.111679
+  },
+  {
+   "code": "INT_EU27_2020",
+   "value_share": 0.102529
+  },
+  {
+   "code": "EXT_EA",
+   "value_share": 0.08369
+  },
+  {
+   "code": "EXT_EA21",
+   "value_share": 0.08362
+  },
+  {
+   "code": "EXT_EU",
+   "value_share": 0.073521
+  },
+  {
+   "code": "INT_EU",
+   "value_share": 0.039117
+  },
+  {
+   "code": "INT_EA21",
+   "value_share": 0.028059
+  },
+  {
+   "code": "INT_EA",
+   "value_share": 0.02799
+  },
+  {
+   "code": "QZ",
+   "value_share": 0.000125
+  },
+  {
+   "code": "QW",
+   "value_share": 5.9e-05
+  },
+  {
+   "code": "QY",
+   "value_share": 3.3e-05
+  },
+  {
+   "code": "QV",
+   "value_share": 1.9e-05
+  },
+  {
+   "code": "LI",
+   "value_share": 1e-06
+  },
+  {
+   "code": "VA",
+   "value_share": 0.0
+  },
+  {
+   "code": "XL",
+   "value_share": 0.0
+  },
+  {
+   "code": "UM",
+   "value_share": 0.0
+  },
+  {
+   "code": "FO",
+   "value_share": 0.0
+  },
+  {
+   "code": "VI",
+   "value_share": 0.0
+  },
+  {
+   "code": "HM",
+   "value_share": 0.0
+  },
+  {
+   "code": "XC",
+   "value_share": 0.0
+  },
+  {
+   "code": "QP",
+   "value_share": 0.0
+  },
+  {
+   "code": "XK",
+   "value_share": 0.0
+  },
+  {
+   "code": "EH",
+   "value_share": 0.0
+  },
+  {
+   "code": "GS",
+   "value_share": 0.0
+  },
+  {
+   "code": "AQ",
+   "value_share": 0.0
+  },
+  {
+   "code": "BV",
+   "value_share": 0.0
+  }
+ ],
+ "min_month_coverage": 0.5,
+ "incomplete_months": [
+  {
+   "reporter": "DE",
+   "month": "2026-08",
+   "intra_eu_records_vs_usual": 0.0,
+   "extra_eu_records_vs_usual": 0.956
+  },
+  {
+   "reporter": "EU27_2020",
+   "month": "2026-08",
+   "intra_eu_records_vs_usual": 0.0,
+   "extra_eu_records_vs_usual": 0.968
+  },
+  {
+   "reporter": "FR",
+   "month": "2026-08",
+   "intra_eu_records_vs_usual": 0.0,
+   "extra_eu_records_vs_usual": 1.106
+  },
+  {
+   "reporter": "IT",
+   "month": "2026-08",
+   "intra_eu_records_vs_usual": 0.0,
+   "extra_eu_records_vs_usual": 0.882
+  },
+  {
+   "reporter": "NL",
+   "month": "2026-08",
+   "intra_eu_records_vs_usual": 0.0,
+   "extra_eu_records_vs_usual": 0.99
+  },
+  {
+   "reporter": "PL",
+   "month": "2026-08",
+   "intra_eu_records_vs_usual": 0.0,
+   "extra_eu_records_vs_usual": 1.054
+  }
+ ],
+ "notes": [
+  "Import values as declared by the reporting country (EU customs statistics), not reconciled like BACI.",
+  "EU27_2020_EXTRA counts only partners outside the EU.",
+  "Trailing-12-month figures need 12 months of data and start 11 months after the first month.",
+  "Trailing-12-month values include partners with no record in the month itself (value_eur is then empty).",
+  "comext_supplier holds values only; a share is the value over the reporter-basket-month total.",
+  "Months Eurostat has only partly published are left out of both marts and listed under incomplete_months."
+ ]
+}

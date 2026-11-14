@@ -1,0 +1,62 @@
+# Pipeline configuration. Change the years or the release here; the basket list lives in baskets.yaml.
+
+baci:
+  release: "202601"          # BACI version; never mix releases in one build
+  hs_revision: HS12
+  url_template: "https://www.cepii.fr/DATA_DOWNLOAD/baci/data/BACI_{hs}_V{release}.zip"
+  years: [2012, 2024]        # inclusive range
+  provisional_years: [2024]  # last year of a release may be revised
+
+wdi:
+  indicator: NY.GDP.MKTP.CD  # GDP, current US$
+  years: [2012, 2024]
+
+gravity:
+  release: "202211"          # CEPII Gravity, Etalab 2.0; covers 1948–2020
+  url_template: "https://www.cepii.fr/DATA_DOWNLOAD/gravity/data/Gravity_csv_V{release}.zip"
+  rta_carry_forward: true    # 2021+ RTA status = last observed (2020) status; see ADR-005
+  sensitivity_drop_smallest_share: 0.10  # robustness run excludes the smallest 10% of economies by total trade
+  community_resolution: 1.5  # Louvain resolution for trade communities (higher = more, smaller clusters)
+
+movers:
+  # "Biggest movers" compares averages over two windows (3-year averages damp one-off years).
+  start_years: [2012, 2014]  # inclusive
+  end_years: [2021, 2023]    # inclusive; excludes provisional years
+  min_imports_kusd: 100000   # ignore importer×basket pairs averaging < $100 m/yr in either window
+
+paths:
+  data_dir: data             # raw/, curated/, marts/ live under here (git-ignored)
+
+forecast:
+  # Chronological benchmark (BLUEPRINT §7). Target = log1p(value) of a link in year t+1, given data up to t.
+  validation_target_years: [2017, 2022]  # expanding-window folds, one per target year (inclusive range)
+  holdout_target_year: 2023              # evaluated once, last; never used for any choice
+  seed: 0
+
+scenarios:
+  # L2 Scenario Studio (precomputed): reallocation after an assumed supplier shortfall. All outputs are SCENARIOS.
+  year: 2023                      # latest final (non-provisional) year
+  top_suppliers: 5                # per basket, by exports
+  shortfalls: [0.25, 0.5, 0.75, 1.0]
+  monte_carlo_shortfalls: [0.5, 1.0]
+  monte_carlo_draws: 100          # alpha ~ U(0.05, 0.30); new links allowed with probability 0.5
+  max_alternatives: 40            # largest alternative suppliers considered per scenario
+
+comext:
+  # L3: monthly EU imports from Eurostat Comext (DS-045409, HS6). Free reuse with acknowledgement; values in EUR.
+  # Kept separate from BACI (different currency, valuation and coverage); never mixed in one figure.
+  dataset: DS-045409
+  api: https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1/data
+  reporters: [EU27_2020, DE, FR, IT, NL, ES, PL]
+  start_year: 2017   # extended from 2023 for the EU nowcast backtest (ML B); same dataset and licence
+  pause_seconds: 1.0   # be polite to the public API
+
+sea:
+  # Phase 2: modelled sea routes (searoute/MARNET) + IMF PortWatch chokepoints. Routes are a MODEL; closures are SCENARIOS.
+  ports_per_country: 3      # gateway ports per country, by PortWatch share of its maritime trade
+  secondary_port_penalty: 0.03  # the n-th port must be > n x 3% shorter to beat the main port
+  max_snap_km: 400          # drop ports farther than this from the sea-lane network
+  detour_ratio: 2.0         # pairs closer than detour_max_km by land whose sea path is > ratio x distance
+  detour_max_km: 3000       #   are classed as overland (e.g. Germany-Italy)
+  closure_year: 2023        # latest final BACI year (2024 is provisional)
+  closures: [suez, bab_el_mandeb, hormuz, malacca, panama, gibraltar, turkish_straits, cape_of_good_hope]

@@ -1,0 +1,51 @@
+[project]
+name = "tradegraph"
+version = "0.1.0"
+description = "Evidence-first trade-dependency analytics built on CEPII BACI."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "duckdb>=1.1",
+    "networkx>=3.7",
+    "py7zr>=1.1.4",
+    "pyarrow>=17",
+    "pydantic>=2.7",
+    "pyfixest>=0.60.0",
+    "pyyaml>=6",
+    "scikit-learn>=1.9.1",
+    "searoute>=1.6.0",
+]
+
+[project.scripts]
+tradegraph = "tradegraph.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tradegraph"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = ["scripts/m0"]  # exploratory M0 scripts, superseded by src/
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501"]  # long lines only occur inside SQL strings; ruff format governs code layout
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = [
+    "ignore::DeprecationWarning:pyfixest",
+    "ignore:The inplace keyword:Warning",
+    "ignore:.*variables dropped due to multicollinearity:UserWarning",
+]

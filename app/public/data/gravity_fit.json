@@ -1,0 +1,410 @@
+{
+ "built_at": "2026-11-06T15:07:24+00:00",
+ "formula": "value ~ ldist + contig + comlang + colony + rta + cov_missing | exp_year + imp_year",
+ "assumption": "Unrecorded country pairs are zero inside the gravity model only (PPML).",
+ "covariates": "CEPII Gravity V202211; RTA after its last year carried forward: True; S19 (Other Asia, nes) uses TWN covariates.",
+ "baskets": {
+  "integrated_circuits": {
+   "label": "Integrated circuits (chips)",
+   "main": {
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.3988807769331052,
+      "se": 0.06691520455055712
+     },
+     "contig": {
+      "estimate": 0.5926817064916768,
+      "se": 0.13798620177030207
+     },
+     "comlang": {
+      "estimate": -0.030733342445771267,
+      "se": 0.20738434006819087
+     },
+     "colony": {
+      "estimate": 0.48492379383953205,
+      "se": 0.2649107423234975
+     },
+     "rta": {
+      "estimate": 0.21668084441460572,
+      "se": 0.12862406400591217
+     },
+     "cov_missing": {
+      "estimate": -0.2752171438779723,
+      "se": 0.1936170111278016
+     }
+    },
+    "n_obs": 616148,
+    "n_dropped": 34124,
+    "n_rows_without_covariates": 11230,
+    "corr_obs_fitted_positive": 0.942054238129329,
+    "unpredicted_value_share": 0.0
+   },
+   "robustness_drop_smallest": {
+    "share_excluded": 0.1,
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.39887752326769205,
+      "se": 0.06694212266042286
+     },
+     "contig": {
+      "estimate": 0.5926796052123168,
+      "se": 0.13804395866640787
+     },
+     "comlang": {
+      "estimate": -0.0307542505040822,
+      "se": 0.2074730020117925
+     },
+     "colony": {
+      "estimate": 0.48493201022398447,
+      "se": 0.26501584602837003
+     },
+     "rta": {
+      "estimate": 0.21669091112743274,
+      "se": 0.12867652303222124
+     },
+     "cov_missing": {
+      "estimate": -0.27522078198711347,
+      "se": 0.19369733798545596
+     }
+    },
+    "n_obs": 521384,
+    "corr_expected_shares_vs_main": 0.9999999998578017
+   }
+  },
+  "li_ion_batteries": {
+   "label": "Lithium-ion accumulators",
+   "main": {
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.5961740729514923,
+      "se": 0.06035315837887027
+     },
+     "contig": {
+      "estimate": 0.08832195988829425,
+      "se": 0.14634156236915635
+     },
+     "comlang": {
+      "estimate": 0.5212031278272415,
+      "se": 0.2225190906052239
+     },
+     "colony": {
+      "estimate": -0.041131638128347206,
+      "se": 0.16036229131395136
+     },
+     "rta": {
+      "estimate": 0.5494052061403598,
+      "se": 0.1287782823129192
+     },
+     "cov_missing": {
+      "estimate": -1.0044302409256238,
+      "se": 0.2517211815804214
+     }
+    },
+    "n_obs": 466936,
+    "n_dropped": 183336,
+    "n_rows_without_covariates": 11230,
+    "corr_obs_fitted_positive": 0.9702762048499557,
+    "unpredicted_value_share": 0.0
+   },
+   "robustness_drop_smallest": {
+    "share_excluded": 0.1,
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.5961377068855145,
+      "se": 0.06037450277467183
+     },
+     "contig": {
+      "estimate": 0.08851694430464109,
+      "se": 0.14638958005361655
+     },
+     "comlang": {
+      "estimate": 0.5209673523808458,
+      "se": 0.2226633642718317
+     },
+     "colony": {
+      "estimate": -0.04149653615287491,
+      "se": 0.160420068664978
+     },
+     "rta": {
+      "estimate": 0.5493916531400947,
+      "se": 0.12883654553179655
+     },
+     "cov_missing": {
+      "estimate": -1.004522124835317,
+      "se": 0.2518289937735808
+     }
+    },
+    "n_obs": 420868,
+    "corr_expected_shares_vs_main": 0.9999999907713425
+   }
+  },
+  "battery_lithium_chemicals": {
+   "label": "Lithium chemicals (carbonate, hydroxide/oxide)",
+   "main": {
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.9286659365643383,
+      "se": 0.09949752927767724
+     },
+     "contig": {
+      "estimate": -0.25356021541446516,
+      "se": 0.3605260542105285
+     },
+     "comlang": {
+      "estimate": -0.31452952363340964,
+      "se": 0.3268838888460904
+     },
+     "colony": {
+      "estimate": -0.5128395626598826,
+      "se": 0.3078464288916643
+     },
+     "rta": {
+      "estimate": 0.01963097970554267,
+      "se": 0.3350765306657775
+     },
+     "cov_missing": {
+      "estimate": 0.05573385732825232,
+      "se": 0.49971328183970914
+     }
+    },
+    "n_obs": 114800,
+    "n_dropped": 535472,
+    "n_rows_without_covariates": 11230,
+    "corr_obs_fitted_positive": 0.9914325408464002,
+    "unpredicted_value_share": 0.0
+   },
+   "robustness_drop_smallest": {
+    "share_excluded": 0.1,
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.9286665629027797,
+      "se": 0.09950237151713394
+     },
+     "contig": {
+      "estimate": -0.25355832223955616,
+      "se": 0.36054334774176583
+     },
+     "comlang": {
+      "estimate": -0.3145339634237551,
+      "se": 0.32689975937218474
+     },
+     "colony": {
+      "estimate": -0.5128392392017862,
+      "se": 0.307861097237235
+     },
+     "rta": {
+      "estimate": 0.01962947343640905,
+      "se": 0.3350926287928282
+     },
+     "cov_missing": {
+      "estimate": 0.05573824908235319,
+      "se": 0.4997375514211782
+     }
+    },
+    "n_obs": 113811,
+    "corr_expected_shares_vs_main": 0.9999999999989566
+   }
+  },
+  "rare_earths_and_magnets": {
+   "label": "Rare-earth compounds, metals and permanent magnets",
+   "main": {
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.3062441575968933,
+      "se": 0.11122297885271794
+     },
+     "contig": {
+      "estimate": 0.5877966177303591,
+      "se": 0.3215006513102503
+     },
+     "comlang": {
+      "estimate": -0.3501704124597398,
+      "se": 0.3093724849258947
+     },
+     "colony": {
+      "estimate": -0.017320005905953808,
+      "se": 0.2711532231771874
+     },
+     "rta": {
+      "estimate": 0.755587058877568,
+      "se": 0.20108226246345973
+     },
+     "cov_missing": {
+      "estimate": -0.2844291595606109,
+      "se": 0.4011855897874407
+     }
+    },
+    "n_obs": 380163,
+    "n_dropped": 270109,
+    "n_rows_without_covariates": 11230,
+    "corr_obs_fitted_positive": 0.8432328888205332,
+    "unpredicted_value_share": 0.0
+   },
+   "robustness_drop_smallest": {
+    "share_excluded": 0.1,
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.30623573526185977,
+      "se": 0.11124092953869628
+     },
+     "contig": {
+      "estimate": 0.5878045689533096,
+      "se": 0.3215543144230759
+     },
+     "comlang": {
+      "estimate": -0.35022229100158736,
+      "se": 0.3094274007558493
+     },
+     "colony": {
+      "estimate": -0.017363879001021317,
+      "se": 0.27120271377693717
+     },
+     "rta": {
+      "estimate": 0.7555923191736579,
+      "se": 0.20111485878948254
+     },
+     "cov_missing": {
+      "estimate": -0.28440463418882617,
+      "se": 0.4012520692397019
+     }
+    },
+    "n_obs": 360014,
+    "corr_expected_shares_vs_main": 0.9999999999314314
+   }
+  },
+  "antibiotics_apis": {
+   "label": "Antibiotics (bulk active ingredients)",
+   "main": {
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.3539885187264485,
+      "se": 0.08257466954158776
+     },
+     "contig": {
+      "estimate": 0.6286151952298008,
+      "se": 0.22209634310392798
+     },
+     "comlang": {
+      "estimate": -0.025544568760472244,
+      "se": 0.268584506848396
+     },
+     "colony": {
+      "estimate": 1.3790249319171497,
+      "se": 0.47515922572268443
+     },
+     "rta": {
+      "estimate": 0.49971711167323135,
+      "se": 0.16505921741848065
+     },
+     "cov_missing": {
+      "estimate": -0.6905140077987704,
+      "se": 0.4497073576212531
+     }
+    },
+    "n_obs": 314628,
+    "n_dropped": 335644,
+    "n_rows_without_covariates": 11230,
+    "corr_obs_fitted_positive": 0.822596127584348,
+    "unpredicted_value_share": 0.0
+   },
+   "robustness_drop_smallest": {
+    "share_excluded": 0.1,
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.35399951382461353,
+      "se": 0.08258881492641275
+     },
+     "contig": {
+      "estimate": 0.6286271179711339,
+      "se": 0.2221296515864868
+     },
+     "comlang": {
+      "estimate": -0.025633484034590585,
+      "se": 0.2686292606922278
+     },
+     "colony": {
+      "estimate": 1.379087044856949,
+      "se": 0.4752265115637789
+     },
+     "rta": {
+      "estimate": 0.49973249943726894,
+      "se": 0.16508662901881518
+     },
+     "cov_missing": {
+      "estimate": -0.6904972357158591,
+      "se": 0.4497898021704036
+     }
+    },
+    "n_obs": 301400,
+    "corr_expected_shares_vs_main": 0.9999999991487895
+   }
+  },
+  "control_green_coffee": {
+   "label": "Green coffee (control basket)",
+   "main": {
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.8846413282400738,
+      "se": 0.09591671230162133
+     },
+     "contig": {
+      "estimate": 0.8266786985747555,
+      "se": 0.20924168575989263
+     },
+     "comlang": {
+      "estimate": -0.3650238858722754,
+      "se": 0.20873277044520017
+     },
+     "colony": {
+      "estimate": 0.4714653987484684,
+      "se": 0.323434983854801
+     },
+     "rta": {
+      "estimate": -0.11410647445748864,
+      "se": 0.12104684069935695
+     },
+     "cov_missing": {
+      "estimate": -0.06783886328778325,
+      "se": 0.8284537081226181
+     }
+    },
+    "n_obs": 464884,
+    "n_dropped": 185388,
+    "n_rows_without_covariates": 11230,
+    "corr_obs_fitted_positive": 0.9359478436816366,
+    "unpredicted_value_share": 0.0
+   },
+   "robustness_drop_smallest": {
+    "share_excluded": 0.1,
+    "coefficients": {
+     "ldist": {
+      "estimate": -0.8846417891097796,
+      "se": 0.09594659462955528
+     },
+     "contig": {
+      "estimate": 0.8267090500466492,
+      "se": 0.20930238737661713
+     },
+     "comlang": {
+      "estimate": -0.3650742104997275,
+      "se": 0.20882395094098555
+     },
+     "colony": {
+      "estimate": 0.47116045651235305,
+      "se": 0.3235924589548787
+     },
+     "rta": {
+      "estimate": -0.11415054973952388,
+      "se": 0.121087255671548
+     },
+     "cov_missing": {
+      "estimate": -0.06763323591549233,
+      "se": 0.8286387860561111
+     }
+    },
+    "n_obs": 425556,
+    "corr_expected_shares_vs_main": 0.9999999831992484
+   }
+  }
+ }
+}

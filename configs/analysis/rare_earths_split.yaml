@@ -1,0 +1,17 @@
+# Analysis-only basket file for reports/m2_rare_earths (not used by the site).
+# Splits the rare_earths_and_magnets basket to test whether magnets (850511, all metal
+# permanent magnets) or the rare-earth compounds/metals drive the change.
+
+hs_revision: HS12
+source_release: BACI_V202601
+
+baskets:
+  re_all:
+    label: Rare earths & magnets (full basket)
+    codes: ["280530", "284610", "284690", "850511"]
+  re_materials:
+    label: Rare-earth compounds and metals
+    codes: ["280530", "284610", "284690"]
+  magnets:
+    label: Permanent magnets of metal (all types)
+    codes: ["850511"]

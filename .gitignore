@@ -1,0 +1,41 @@
+# Data: raw/interim/processed are rebuilt from source; only approved tiny fixtures are committed
+/data/
+!tests/fixtures/
+*.parquet
+*.duckdb
+*.duckdb.wal
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+
+# Node / static site builds
+node_modules/
+**/dist/
+**/.observablehq/cache/
+
+# Experiment artifacts
+mlruns/
+reports/artifacts/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# App: the published data in app/public/data IS committed (the deployed site reads it; refreshed by `npm run data`)
+!/app/public/data/*.parquet
+/app/dist/
+
+# Local Claude Code settings
+.claude/

@@ -1,0 +1,36 @@
+{
+ "built_at": "2026-11-11T11:30:32+00:00",
+ "closure_year": 2023,
+ "model": {
+  "network": "searoute 1.6 (Apache-2.0) over Eurostat MARNET; Northwest Passage closed",
+  "ports_per_country": 3,
+  "secondary_port_penalty": 0.03,
+  "max_snap_km": 400.0,
+  "detour_ratio": 2.0,
+  "detour_max_km": 3000.0,
+  "gateway_ports": "top ports by PortWatch share of the country's maritime imports + exports",
+  "route": "shortest network path over all gateway-port combinations of the two countries"
+ },
+ "portwatch": {
+  "attribution": "Source: International Monetary Fund, PortWatch (portwatch.imf.org): Daily Chokepoint Transit Calls; Ports and Chokepoints databases.",
+  "transformation": "Daily transit counts are aggregated to weekly averages; port shares are used only to choose gateway ports.",
+  "licence": "https://www.imf.org/en/about/copyright-and-terms",
+  "retrieved_at": "2026-11-07T11:53:09+00:00",
+  "source": "https://services9.arcgis.com/weJ1QsnbMYJlCHdG/arcgis/rest/services/Daily_Chokepoints_Data/FeatureServer/0",
+  "first_date": "2019-01-01",
+  "last_date": "2026-10-19"
+ },
+ "chokepoint_names": {
+  "suez": "Suez Canal",
+  "bab_el_mandeb": "Bab el-Mandeb",
+  "hormuz": "Strait of Hormuz",
+  "malacca": "Strait of Malacca",
+  "sunda": "Sunda Strait",
+  "panama": "Panama Canal",
+  "gibraltar": "Strait of Gibraltar",
+  "turkish_straits": "Turkish Straits",
+  "cape_of_good_hope": "Cape of Good Hope",
+  "cape_horn_magellan": "Cape Horn and Magellan",
+  "bering": "Bering Strait"
+ }
+}
