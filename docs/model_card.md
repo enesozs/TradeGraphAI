@@ -1,6 +1,6 @@
 # Model card: gravity baseline and forecast models
 
-## 1. Gravity baseline (M3, ADR-006)
+## 1. Gravity baseline
 
 - **Purpose:** an "expected trade" reference, so that network centrality can be read relative to size and geography. It is **not** a causal model and **not** a forecaster.
 - **Specification:** PPML (`pyfixest.fepois`), one fit per basket on all country pairs × years 2012–2024:
@@ -18,7 +18,7 @@
   - Robustness: excluding the smallest 10% of economies leaves expected supplier shares unchanged (correlation 1.000).
 - **Don't use it for:** forecasting individual links (it scores −82% skill vs persistence), or causal claims about distance, language or agreements.
 
-## 2. Forecast models (M4, ADR-007)
+## 2. Forecast models
 
 - **Task:** log(1 + next-year value) for supplier → importer basket links recorded in both years.
 - **Models:**

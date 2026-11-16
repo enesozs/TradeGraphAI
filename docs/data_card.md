@@ -10,13 +10,13 @@
 | CEPII Gravity V202211 | Distance, border, language, colonial tie, trade agreements | Etalab Open Licence 2.0 | CEPII Gravity database |
 | World Bank WDI (NY.GDP.MKTP.CD) | Downloaded; not used in published outputs yet | CC BY 4.0 | World Bank, World Development Indicators |
 
-No UN Comtrade data is stored or published (see `docs/source_inventory.md`).
+No UN Comtrade data is stored or published.
 
 ## What a row means
 
 - **Trade value:** reconciled bilateral merchandise trade, exporter → importer, HS 6-digit product, calendar year, **thousand current USD, FOB-equivalent**. Quantities are in metric tonnes, and some are missing.
 - **Baskets:** sums of HS6 codes defined in `configs/baskets.yaml`.
-- **Missing vs zero:** BACI records only strictly positive flows. An absent row means "not recorded", **not** zero. The one exception is inside the gravity model (ADR-006).
+- **Missing vs zero:** BACI records only strictly positive flows. An absent row means "not recorded", **not** zero. The one exception is inside the gravity model.
 
 ## Marts (`data/marts/HS12_V202601/`)
 

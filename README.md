@@ -27,11 +27,11 @@ More in the [gallery](docs/gallery.md).
 | **Scenario studio** | If a major supplier falls short, how much do others make up, under fixed or learned capacity, how much stays unmet, and how uncertain is that? (Labelled *scenario*.) |
 | **Findings**, **Forecast lab**, **Methodology** | Written findings, a forecast benchmark against "same as last year", and how everything is computed. |
 
-**Findings so far:**
+**Findings:**
 - [Rare earths and magnets](reports/m2_rare_earths/finding.md): China's share of German and US imports rose from about 52–58% to 73–77% by value, driven by permanent magnets.
 - [Forecast benchmark](reports/m4_forecast/benchmark.md): machine learning beats persistence by about 5% in log error, but last year's value remains very hard to beat for the largest flows.
 
-**Boundary:** aggregate trade data are not firm supply chains, sea routes are modelled rather than tracked, and scenarios are assumptions, not forecasts or causal estimates. See the scientific contract in [`AGENTS.md`](AGENTS.md).
+**Boundary:** aggregate trade data are not firm supply chains, sea routes are modelled rather than tracked, and scenarios are assumptions, not forecasts or causal estimates.
 
 ## Data
 
@@ -49,7 +49,7 @@ The project is non-commercial, which some of these terms require. All data is ad
 
 **Product baskets**, editable in [`configs/baskets.yaml`](configs/baskets.yaml): chips, Li-ion batteries, lithium chemicals, rare earths and magnets, bulk antibiotics, and green coffee as a control.
 
-Details are in the [data card](docs/data_card.md), the [model card](docs/model_card.md) and the [source inventory](docs/source_inventory.md).
+Details are in the [data card](docs/data_card.md) and the [model card](docs/model_card.md).
 
 ## Getting started
 
@@ -87,12 +87,7 @@ raw snapshots (SHA-256 manifests; git-ignored)
 
 ## Documents
 
-- [`BLUEPRINT.md`](BLUEPRINT.md): mission, metrics, methods and roadmap
-- [`docs/decisions.md`](docs/decisions.md): decision log (ADR-001 onwards)
-- [`docs/source_inventory.md`](docs/source_inventory.md): sources, licences and validation evidence
 - [`docs/data_card.md`](docs/data_card.md) · [`docs/model_card.md`](docs/model_card.md) · [`docs/gallery.md`](docs/gallery.md)
-- [`docs/VISUAL_DESIGN.md`](docs/VISUAL_DESIGN.md): visual language
-- [`AGENTS.md`](AGENTS.md) · [`CLAUDE.md`](CLAUDE.md): scientific contract, engineering standards and workflow for contributors and coding agents
 - `site/`: the first prototype (Observable Framework), kept for reference; the app in `app/` replaces it
 
 ## Licence

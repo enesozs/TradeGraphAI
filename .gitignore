@@ -39,3 +39,13 @@ reports/artifacts/
 
 # Local Claude Code settings
 .claude/
+
+# Agent instructions and internal working notes (kept local)
+AGENTS.md
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+BLUEPRINT.md
+docs/VISUAL_DESIGN.md
+docs/decisions.md
+docs/source_inventory.md
